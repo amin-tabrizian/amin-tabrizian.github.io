@@ -11,8 +11,8 @@ redirect_from:
 
 Education
 ======
-* B.S. in Mechanical Engineering, University of Tehran, 2017-2021 (GPA: 3.93)
 * Ph.D in Mechanical Engineering, George Washington University, 2022-
+* B.S. in Mechanical Engineering, University of Tehran, 2017-2021 (GPA: 3.93)
 
 
 Teaching Experience
