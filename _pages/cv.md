@@ -16,6 +16,7 @@ Education
 
 Teaching Experience
 ======
+* Teaching Assistant - Measuring Instrumentation and Systems, University of Tehran, 2021
 * Teaching Assistant - Interactive Learning, Univeristy of Tehran, 2021
 * Teaching Assistant - Introduction to Artificial Intelligence, Univeristy of Tehran, 2021
 * Teaching Assistant - Automatic Control, Univeristy of Tehran, 2021
