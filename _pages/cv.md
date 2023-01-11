@@ -7,15 +7,21 @@ redirect_from:
   - /resume
 ---
 
-{% include base_path %}
+<!-- {% include base_path %} -->
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.S. in Mechanical Engineering, University of Tehran, 2017-2021 (GPA: 3.93)
+* Ph.D in Mechanical Engineering, George Washington University, 2022-
 
-Work experience
+Teaching Experience
+======
+* Teaching Assistant - Interactive Learning, Univeristy of Tehran, 2021
+* Teaching Assistant - Introduction to Artificial Intelligence, Univeristy of Tehran, 2021
+* Teaching Assistant - Automatic Control, Univeristy of Tehran, 2021
+* Teaching Assistant - Statistics and Probability, Univeristy of Tehran, 2020
+
+<!-- Work experience
 ======
 * Summer 2015: Research Assistant
   * Github University
@@ -56,4 +62,4 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Currently signed in to 43 different slack teams -->
