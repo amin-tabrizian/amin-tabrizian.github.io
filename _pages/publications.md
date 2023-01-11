@@ -1,13 +1,13 @@
 ---
 layout: archive
-title: "Publications"
+title: "Preprints"
 permalink: /publications/
 author_profile: true
 ---
-Preprints
-======
+
 [A Survey on Reinforcement Learning in Aviation Applications](https://arxiv.org/abs/2211.02147)
 P. Razzaghi, A. Tabrizian, W. Guo, S. Chen, A. Taye, E. Thompson, A. Bregeon, A. Baheri and P. Wei
+
 <!-- {% if author.googlescholar %}
   You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
 {% endif %}
