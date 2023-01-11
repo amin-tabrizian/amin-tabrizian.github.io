@@ -309,3 +309,4 @@ compress_html:
   clippings: all
   ignore:
     envs: development
+remote_theme: yaoyao-liu/minimal-light
