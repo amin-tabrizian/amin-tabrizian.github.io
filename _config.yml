@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Intro"
+title                    : "About me"
 title_separator          : "-"
 name                     : &name "Amin Tabrizian"
 description              : &description "personal description"
