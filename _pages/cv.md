@@ -11,7 +11,7 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Mechanical Engineering, George Washington University, 2022-
+* Ph.D in Computer Sceince, George Washington University, 2022-
 * B.S. in Mechanical Engineering, University of Tehran, 2017-2021 (GPA: 3.93)
 
 
