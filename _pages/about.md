@@ -7,7 +7,9 @@ redirect_from:
   - /about/
   - /about.html
 ---
-I am currently a second year Ph.D. student at [GWU Intelligent Aerospace Systems Lab (IASL)](https://web.seas.gwu.edu/pwei/people/) advised by Prof. [Peng Wei](https://web.seas.gwu.edu/pwei/), studying Computer Science. My area of focus is  Machine Intelligence and Cognition. I am mainly interested in Deep Reinforcement Learning and Multi-agent Reinforcement Learning algorithms in the context of vehicle autonomy and certification.
+I am a third-year Ph.D. student at [GWU Intelligent Aerospace Systems Lab (IASL)](https://web.seas.gwu.edu/pwei/people/), working under the supervision of Prof. [Peng Wei](https://web.seas.gwu.edu/pwei/). My research focuses on Machine Intelligence and Cognition, with a strong emphasis on Deep Reinforcement Learning and Multi-agent Reinforcement Learning algorithms, particularly within the realm of autonomous vehicle systems and certification processes.
+
+I am passionate about advancing vehicle autonomy through cutting-edge reinforcement learning techniques and am particularly interested in developing safe, efficient, and scalable systems for real-world applications. My work aims to bridge the gap between theoretical research and practical implementation, pushing the boundaries of what autonomous systems can achieve.
 
 <!-- Education
 ======

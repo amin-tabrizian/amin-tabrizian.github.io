@@ -9,7 +9,9 @@ redirect_from:
 
 <!-- {% include base_path %} -->
 
-Education
+
+
+<!-- Education
 ======
 * Ph.D in Computer Sceince, George Washington University, 2022-
 * B.S. in Mechanical Engineering, University of Tehran, 2017-2021 (GPA: 3.93)
@@ -21,7 +23,7 @@ Teaching Experience
 * Teaching Assistant - Interactive Learning, Univeristy of Tehran, 2021
 * Teaching Assistant - Introduction to Artificial Intelligence, Univeristy of Tehran, 2021
 * Teaching Assistant - Automatic Control, Univeristy of Tehran, 2021
-* Teaching Assistant - Statistics and Probability, Univeristy of Tehran, 2020
+* Teaching Assistant - Statistics and Probability, Univeristy of Tehran, 2020 -->
 
 <!-- Work experience
 ======
