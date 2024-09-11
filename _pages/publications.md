@@ -15,8 +15,7 @@ A. Famili, A. Tabrizian, T. Atalay, A. Stavrou, P. Wei
 
 [Using Large Language Models to Automate Flight Planning under Wind Hazards](https://web.seas.gwu.edu/pwei/files/2024/07/amin_llm_dasc24.pdf)
 
-A. Tabrizian et al
-
+A. Tabrizian, P. Gupta, A. Taye, J. Jones, E. Thompson, S. Chen, T. Bonin, D. Eberle, and P. Wei
 <!-- {% if author.googlescholar %}
   You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
 {% endif %}
