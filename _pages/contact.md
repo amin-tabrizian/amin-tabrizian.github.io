@@ -6,7 +6,7 @@ author_profile: true
 
 ## Contact
 
-**Email:** amin_tabrizian@gwu.edu
+**Email:** amin_tabrizian[at]gwu[dot]edu
 
 **Location:** Washington, D.C.
 
