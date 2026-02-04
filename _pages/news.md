@@ -9,11 +9,7 @@ author_profile: true
 
 * [2025] Received the **Neil Y. Chen Memorial Best Student Paper Award** in the Air Transportation Systems Track at AIAA Aviation 2025 for "Chain-of-Thought Flight Planner: End-to-End LLM Routing Under Wind Hazards."
 
-* [2025] Four papers accepted to AIAA Aviation 2025, Las Vegas, NV:
-  - "Chain-of-Thought Flight Planner: End-to-End LLM Routing Under Wind Hazards" (Best Student Paper Award Winner)
-  - "Transformer or CNN? Benchmarking Real-Time Detection Transformer and YOLOv8 for small UAS autonomous landing"
-  - "Small UAS Landing Site Detection with ArUco Markers and Deep Learning based Computer Vision"
-  - "Synthetic Data Generation for Computer Vision based Autonomous Landing for Small UAS Package Delivery"
+* [2025] Four papers accepted to AIAA Aviation 2025, Las Vegas, NV
 
 * [2025] Gave talk on "End-to-End LLM Flight Planning with RAG-based Memory and Multi-modal Coach Agent" at INFORMS Annual Meeting, Atlanta, GA.
 
@@ -27,10 +23,7 @@ author_profile: true
 
 * [2024] Paper "A Survey on Reinforcement Learning in Aviation Applications" published in Engineering Applications of Artificial Intelligence Journal (vol. 136, p. 108911, Oct. 2024).
 
-* [2024] Multiple papers accepted to IEEE conferences:
-  - "RAPID: Reinforcement Learning-Aided Femtocell Placement for Indoor Drone Localization" (ICCCN 2024)
-  - "RADIO: Reinforcement Learning-Aided Deployment of Wi-Fi Routers in 5G Networks for Indoor Drone Orchestrating" (iThings 2024)
-  - "GREEN: Precise Geolocation in Metaverse using Reinforcement Learning-Enabled Sensor Placement" (MetaCom 2024)
+* [2024] Three papers accepted to IEEE conferences
 
 * [2024] Gave talk at INFORMS Annual Meeting (Seattle, WA) on using Large Language Models for flight planning.
 
