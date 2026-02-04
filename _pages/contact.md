@@ -5,5 +5,5 @@ author_profile: true
 ---
 
 
-**Email:** amin_tabrizian[at]gwu[dot]edu
+**Email:** amin_tabrizian [at] gwu [dot] edu
 

@@ -1,11 +1,11 @@
 ---
 layout: archive
-title: "Teaching"
+title: "Teaching Experience"
 permalink: /teaching/
 author_profile: true
 ---
 
-## Teaching Experience
+<!-- ## Teaching Experience -->
 
 **Teaching Assistant, MAE 3134 - Linear System Dynamics**  
 The George Washington University, Spring 2025  
