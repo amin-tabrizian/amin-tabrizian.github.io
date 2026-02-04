@@ -19,9 +19,9 @@ author_profile: true
 
 * [2024] Organized the Safe and Reliable AI Workshop 2024.
 
-* [2024] Paper "Using Large Language Models to Automate Flight Planning under Wind Hazards" accepted to IEEE Digital Avionics Systems Conference (DASC) 2024, San Diego, CA.
+* [2024] Paper "Using Large Language Models to Automate Flight Planning under Wind Hazards" accepted to IEEE DASC.
 
-* [2024] Paper "A Survey on Reinforcement Learning in Aviation Applications" published in Engineering Applications of Artificial Intelligence Journal (vol. 136, p. 108911, Oct. 2024).
+* [2024] Paper "A Survey on Reinforcement Learning in Aviation Applications" published in Engineering Applications of Artificial Intelligence Journal.
 
 * [2024] Three papers accepted to IEEE conferences
 
