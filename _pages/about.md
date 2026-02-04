@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-# About
+<!-- # About -->
 
 Hello! I'm a PhD student in Computer Science at [The George Washington University](https://www.gwu.edu/), working in the [Intelligent Aerospace Systems Laboratory (IASL)](https://web.seas.gwu.edu/pwei/people/) under the supervision of Prof. [Peng Wei](https://web.seas.gwu.edu/pwei/). My research focuses on the development of applied artificial intelligence systems for decision-making under uncertainty in safety-critical domains.
 
