@@ -1,11 +1,11 @@
 ---
 layout: archive
-title: "Talks"
+title: "Invited Talks"
 permalink: /talks/
 author_profile: true
 ---
 
-## Invited Talks
+<!-- ## Invited Talks -->
 
 **End-to-End LLM Flight Planning with RAG-based Memory and Multi-modal Coach Agent**  
 Invited Technical Talk, Honeywell Advanced Technology, December 2025

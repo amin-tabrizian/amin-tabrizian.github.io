@@ -7,7 +7,9 @@ redirect_from:
   - /resume
 ---
 
-You can access my CV [here](/files/CV.pdf).
+<iframe src="/files/CV.pdf" width="100%" height="800px" style="border: none;"></iframe>
+
+<p>You can also <a href="/files/CV.pdf" target="_blank">download my CV</a>.</p>
 
 
 <!-- Education
