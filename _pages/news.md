@@ -4,5 +4,34 @@ title: "News"
 permalink: /news/
 author_profile: true
 ---
-* [August 2024] Our paper "Using Large Language Models to Automate Flight Planning under Wind Hazards" is accepted to DASC 2024.
-* [July 2024] Our article "A Survey on Reinforcement Learning in Aviation Applications" is accepted to Engineering Applications of Artifical Intelligence Journal.
+
+* [December 2025] Gave an invited technical talk on "End-to-End LLM Flight Planning with RAG-based Memory and Multi-modal Coach Agent" at Honeywell Advanced Technology.
+
+* [2025] Received the **Neil Y. Chen Memorial Best Student Paper Award** in the Air Transportation Systems Track at AIAA Aviation 2025 for "Chain-of-Thought Flight Planner: End-to-End LLM Routing Under Wind Hazards."
+
+* [2025] Four papers accepted to AIAA Aviation 2025, Las Vegas, NV:
+  - "Chain-of-Thought Flight Planner: End-to-End LLM Routing Under Wind Hazards" (Best Student Paper Award Winner)
+  - "Transformer or CNN? Benchmarking Real-Time Detection Transformer and YOLOv8 for small UAS autonomous landing"
+  - "Small UAS Landing Site Detection with ArUco Markers and Deep Learning based Computer Vision"
+  - "Synthetic Data Generation for Computer Vision based Autonomous Landing for Small UAS Package Delivery"
+
+* [2025] Gave talk on "End-to-End LLM Flight Planning with RAG-based Memory and Multi-modal Coach Agent" at INFORMS Annual Meeting, Atlanta, GA.
+
+* [2025] Gave talk on "Using Large Language Models to Automate Flight Planning Under Wind Hazards" at AAAI 2025 Spring Symposium Series, San Francisco, CA.
+
+* [2025] Organized the NASA System-Wide Safety Program Workshop 2025.
+
+* [2024] Organized the Safe and Reliable AI Workshop 2024.
+
+* [2024] Paper "Using Large Language Models to Automate Flight Planning under Wind Hazards" accepted to IEEE Digital Avionics Systems Conference (DASC) 2024, San Diego, CA.
+
+* [2024] Paper "A Survey on Reinforcement Learning in Aviation Applications" published in Engineering Applications of Artificial Intelligence Journal (vol. 136, p. 108911, Oct. 2024).
+
+* [2024] Multiple papers accepted to IEEE conferences:
+  - "RAPID: Reinforcement Learning-Aided Femtocell Placement for Indoor Drone Localization" (ICCCN 2024)
+  - "RADIO: Reinforcement Learning-Aided Deployment of Wi-Fi Routers in 5G Networks for Indoor Drone Orchestrating" (iThings 2024)
+  - "GREEN: Precise Geolocation in Metaverse using Reinforcement Learning-Enabled Sensor Placement" (MetaCom 2024)
+
+* [2024] Gave talk at INFORMS Annual Meeting (Seattle, WA) on using Large Language Models for flight planning.
+
+* [Ongoing] Serving as reviewer for Journal of Aerospace Information Systems (2022-2025), AIAA Aviation Conference 2025, and Journal of IFAC Engineering Applications of Artificial Intelligence 2024.
