@@ -16,4 +16,4 @@ My core interests include Generative AI and Large Language Models (LLMs), agenti
 
 Before my PhD, I completed a B.S. in Mechanical Engineering at the University of Tehran, where I had the privilege to collaborate with excellent researchers and mentors.
 
-**I am currently on the job market abe glad to connect regarding opportunities in your team.
+I am currently in the job market and open to new opportunities in research and industry.
