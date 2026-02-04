@@ -84,12 +84,12 @@ author:
   avatar           : "profile.png"
   bio              : "PhD Student in Computer Science at George Washington University"
   location         : "Washington, D.C."
-  employer         : "George Washington University"
+  employer         :
   pubmed           :
   googlescholar    : https://scholar.google.com/citations?user=TkyBhtIAAAAJ&hl=en
   email            : "amin_tabrizian@gwu.edu"
   researchgate     :
-  uri              : "https://amin-tabrizian.github.io"
+  uri              :
   bitbucket        :
   codepen          :
   dribbble         :
