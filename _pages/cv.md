@@ -1,14 +1,13 @@
 ---
 layout: archive
-title: ""
+title: "CV"
 permalink: /cv/
 author_profile: true
 redirect_from:
   - /resume
 ---
 
-<!-- {% include base_path %} -->
-You can access my CV [here](https://drive.google.com/uc?export=download&id=1M4Ddw-cqvRw2bKFhY_ChuOIc2Iyao5y3).
+You can access my CV [here](/files/CV.pdf).
 
 
 <!-- Education

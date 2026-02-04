@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "About me"
+title                    : "Amin Tabrizian"
 title_separator          : "-"
 name                     : &name "Amin Tabrizian"
-description              : &description "personal description"
+description              : &description "PhD Student in Computer Science at George Washington University"
 url                      : https://amin-tabrizian.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "amin-tabrizian/amin-tabrizian.github.io"
@@ -82,14 +82,14 @@ analytics:
 author:
   name             : "Amin Tabrizian"
   avatar           : "profile.png"
-  bio              : "PhD Student at George Washington University"
-  location         : "Washington, DC"
-  employer         :
+  bio              : "PhD Student in Computer Science at George Washington University"
+  location         : "Washington, D.C."
+  employer         : "George Washington University"
   pubmed           :
   googlescholar    : https://scholar.google.com/citations?user=TkyBhtIAAAAJ&hl=en
-  email            :
-  researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
-  uri              :
+  email            : "amin_tabrizian@gwu.edu"
+  researchgate     :
+  uri              : "https://amin-tabrizian.github.io"
   bitbucket        :
   codepen          :
   dribbble         :
@@ -100,13 +100,13 @@ author:
   google_plus      :
   keybase          :
   instagram        :
-  impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
+  impactstory      :
   lastfm           :
   linkedin         : "amin-tabrizian"
-  orcid            : 
+  orcid            :
   pinterest        :
   soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
+  stackoverflow    :
   steam            :
   tumblr           :
   twitter          :
