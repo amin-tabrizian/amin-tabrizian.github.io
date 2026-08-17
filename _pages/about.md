@@ -15,5 +15,3 @@ Hello! I'm a PhD student in Computer Science at [The George Washington Universit
 My core interests include Generative AI and Large Language Models (LLMs), agentic AI, and Retrieval-Augmented Generation (RAG), with an emphasis on robustness, safety, and explainability. The work integrates Machine Learning, Reinforcement Learning, and control theory to address challenges such as partial observability, delayed information, and scalable evaluation in real-world applications.
 
 Before my PhD, I completed a B.S. in Mechanical Engineering at the University of Tehran, where I had the privilege to collaborate with excellent researchers and mentors.
-
-I am currently in the job market and open to new opportunities in research and industry.

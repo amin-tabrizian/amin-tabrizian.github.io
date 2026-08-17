@@ -10,5 +10,7 @@ main:
     url: /talks/
   - title: "CV"
     url: /cv/
+  - title: "Calendar"
+    url: /calendar/
   - title: "Contact"
     url: /contact/
