@@ -32,6 +32,20 @@ jobs:
       - name: Install dependencies
         run: pip install icalendar==7.3.0 recurring-ical-events==3.8.2
 
+      - name: Diagnose Cignus feed (temporary)
+        continue-on-error: true
+        env:
+          U: ${{ secrets.CIGNUS_ICS_URL }}
+        run: |
+          U=$(printf '%s' "$U" | tr -d '[:space:]"')
+          case "$U" in *.ics) ics=yes ;; *) ics=no ;; esac
+          a=$(curl -s -o /dev/null -w '%{http_code}' -A 'busy-times/1.0' "$U")
+          b=$(curl -s -o /dev/null -w '%{http_code}' -A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36' -H 'Accept: text/calendar,*/*' "$U")
+          c=$(curl -s -o /dev/null -w '%{http_code}' --http1.1 -A 'Microsoft Office/16.0 (Windows NT 10.0; Microsoft Outlook 16.0; Pro)' "$U")
+          d=$(curl -s -o /dev/null -w '%{http_code}' -A 'Google-Calendar-Importer' "$U")
+          e=$(curl -s -o /dev/null -w '%{http_code}' "$U")
+          echo "::warning::cignus diag: ics=$ics len=${#U} plain=$a browser=$b outlook=$c google=$d curl=$e"
+
       - name: Build busy.json
         env:
           GWU_ICS_URL: ${{ secrets.GWU_ICS_URL }}
