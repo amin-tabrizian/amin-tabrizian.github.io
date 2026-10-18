@@ -241,9 +241,6 @@ details[open] summary { margin-bottom: 6px; }
 .compact li { margin-bottom: 10px; font-size: 16px; }
 .compact .venue { font-size: inherit; }
 
-.hover-hint { display: none; }
-@media (hover: hover) { .hover-hint { display: inline; } }
-
 /* Footer */
 
 footer {
