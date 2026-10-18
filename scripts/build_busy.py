@@ -7,9 +7,13 @@ Titles, locations, and attendees are never written or printed.
 
 Usage: python scripts/build_busy.py calendar/busy.json
 """
+import base64
 import json
 import os
+import re
 import sys
+import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import datetime, time, timedelta
 from zoneinfo import ZoneInfo
@@ -22,12 +26,30 @@ WEEKS = 5
 FEEDS = ("GWU_ICS_URL", "CIGNUS_ICS_URL")
 
 
-def fetch(url):
+def normalize(url):
+    url = url.strip().strip("\"'<>`").strip()
     if url.startswith("webcal://"):
         url = "https://" + url[len("webcal://"):]
-    req = urllib.request.Request(url, headers={"User-Agent": "busy-times/1.0"})
+    # A Google Calendar share link (?cid=...) names the calendar; use its public iCal feed.
+    cid = re.search(r"[?&]cid=([^&#]+)", url)
+    if cid and "calendar.google.com" in url:
+        raw = urllib.parse.unquote(cid.group(1))
+        cal_id = base64.urlsafe_b64decode(raw + "=" * (-len(raw) % 4)).decode()
+        url = "https://calendar.google.com/calendar/ical/" + urllib.parse.quote(cal_id) + "/public/basic.ics"
+    return url
+
+
+def fetch(url):
+    req = urllib.request.Request(normalize(url), headers={"User-Agent": "busy-times/1.0"})
     with urllib.request.urlopen(req, timeout=30) as resp:
-        return resp.read()
+        body = resp.read()
+    if not body.lstrip(b"\xef\xbb\xbf \r\n\t").startswith(b"BEGIN:VCALENDAR"):
+        raise NotICal("response is not an iCal feed; use the .ics link")
+    return body
+
+
+class NotICal(Exception):
+    pass
 
 
 def to_local(value):
@@ -94,7 +116,8 @@ def main(out_path):
     start = datetime.combine(monday, time.min, tzinfo=TZ)
     end = datetime.combine(monday + timedelta(weeks=WEEKS), time.min, tzinfo=TZ)
 
-    configured = [name for name in FEEDS if os.environ.get(name)]
+    configured = [name for name in FEEDS if os.environ.get(name, "").strip()]
+    print("Feeds configured:", ", ".join(configured) or "none")
     if not configured:
         sys.exit("No calendar feeds configured. Set " + " and ".join(FEEDS) + ".")
 
@@ -102,7 +125,13 @@ def main(out_path):
     for name in configured:
         try:
             found = list(busy_intervals(fetch(os.environ[name]), start, end))
-        except Exception as exc:  # keep the old file rather than publish partial data
+        # Exit without writing, so the site keeps the last good data instead of partial data.
+        # Messages never include the feed URL, since some feed URLs are private.
+        except urllib.error.HTTPError as exc:
+            sys.exit(f"{name}: could not read feed (HTTP {exc.code}).")
+        except NotICal as exc:
+            sys.exit(f"{name}: {exc}.")
+        except Exception as exc:
             sys.exit(f"{name}: could not read feed ({type(exc).__name__}).")
         print(f"{name}: {len(found)} busy events")
         intervals.extend(found)
