@@ -22,7 +22,7 @@ import icalendar
 import recurring_ical_events
 
 TZ = ZoneInfo("America/New_York")
-WEEKS = 5
+WEEKS = 13
 FEEDS = ("GWU_ICS_URL", "CIGNUS_ICS_URL")
 
 
