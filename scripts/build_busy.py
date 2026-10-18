@@ -30,6 +30,9 @@ def normalize(url):
     url = url.strip().strip("\"'<>`").strip()
     if url.startswith("webcal://"):
         url = "https://" + url[len("webcal://"):]
+    # Outlook publishes an HTML link and an ICS link; only the ICS one is a feed.
+    if "outlook." in url and url.endswith("/calendar.html"):
+        url = url[: -len("html")] + "ics"
     # A Google Calendar share link (?cid=...) names the calendar; use its public iCal feed.
     cid = re.search(r"[?&]cid=([^&#]+)", url)
     if cid and "calendar.google.com" in url:
