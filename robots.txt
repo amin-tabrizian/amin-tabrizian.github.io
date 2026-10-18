@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amin-tabrizian.github.io/sitemap.xml
