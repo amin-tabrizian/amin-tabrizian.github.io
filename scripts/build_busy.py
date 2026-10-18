@@ -52,6 +52,13 @@ class NotICal(Exception):
     pass
 
 
+def fail(message):
+    # On GitHub Actions, also show the message as an annotation on the run page.
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        print(f"::error::{message}")
+    sys.exit(message)
+
+
 def to_local(value):
     if isinstance(value, datetime):
         if value.tzinfo is None:
@@ -119,7 +126,7 @@ def main(out_path):
     configured = [name for name in FEEDS if os.environ.get(name, "").strip()]
     print("Feeds configured:", ", ".join(configured) or "none")
     if not configured:
-        sys.exit("No calendar feeds configured. Set " + " and ".join(FEEDS) + ".")
+        fail("No calendar feeds configured. Set " + " and ".join(FEEDS) + ".")
 
     intervals = []
     for name in configured:
@@ -128,11 +135,11 @@ def main(out_path):
         # Exit without writing, so the site keeps the last good data instead of partial data.
         # Messages never include the feed URL, since some feed URLs are private.
         except urllib.error.HTTPError as exc:
-            sys.exit(f"{name}: could not read feed (HTTP {exc.code}).")
+            fail(f"{name}: could not read feed (HTTP {exc.code}).")
         except NotICal as exc:
-            sys.exit(f"{name}: {exc}.")
+            fail(f"{name}: {exc}.")
         except Exception as exc:
-            sys.exit(f"{name}: could not read feed ({type(exc).__name__}).")
+            fail(f"{name}: could not read feed ({type(exc).__name__}).")
         print(f"{name}: {len(found)} busy events")
         intervals.extend(found)
 
