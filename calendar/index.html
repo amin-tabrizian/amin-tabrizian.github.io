@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Calendar | Amin Tabrizian</title>
-<meta name="description" content="Book a meeting with Amin Tabrizian.">
+<meta name="description" content="Amin Tabrizian's busy times for the next few weeks.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,9 +15,136 @@
 <main>
   <p class="back"><a href="../">Amin Tabrizian</a></p>
   <h2>Calendar</h2>
-  <p>Pick any open slot below to book a meeting.</p>
-  <iframe class="cal" title="Amin Tabrizian's calendar" src="https://calendar.google.com/calendar/embed?src=amin_tabrizian%40email.gwu.edu&amp;src=0jf2ar9nfe6jh18o10ans9gnitd7j4j8%40import.calendar.google.com&amp;ctz=America%2FNew_York&amp;mode=WEEK" loading="lazy"></iframe>
-  <p class="note" style="margin-top: 12px;">If the calendar doesn't load, <a href="https://calendar.google.com/calendar/u/0?cid=YW1pbl90YWJyaXppYW5AZW1haWwuZ3d1LmVkdQ">open it in Google Calendar</a>.</p>
+  <p>My busy times for the next few weeks, in Eastern Time. To meet, email amin_tabrizian [at] gwu [dot] edu with a time that works.</p>
+
+  <div class="week-nav" id="week-nav" hidden>
+    <button type="button" id="prev">Previous week</button>
+    <span class="range" id="range"></span>
+    <button type="button" id="next">Next week</button>
+  </div>
+  <div class="cal-grid" id="cal-grid" hidden></div>
+  <p class="note" id="cal-msg" hidden>Calendar unavailable right now.</p>
 </main>
+
+<script>
+(function () {
+  // busy.json is written by scripts/build_busy.py (see .github/workflows/busy.yml)
+  var START_HOUR = 8, END_HOUR = 19, DAYS = 5;
+
+  var grid = document.getElementById('cal-grid');
+  var nav = document.getElementById('week-nav');
+  var rangeEl = document.getElementById('range');
+  var prevBtn = document.getElementById('prev');
+  var nextBtn = document.getElementById('next');
+
+  function parse(s) { var p = s.split('-'); return new Date(Date.UTC(+p[0], p[1] - 1, +p[2])); }
+  function iso(d) { return d.toISOString().slice(0, 10); }
+  function addDays(d, n) { var x = new Date(d); x.setUTCDate(x.getUTCDate() + n); return x; }
+  function fmt(d, opts) { opts.timeZone = 'UTC'; return d.toLocaleDateString('en-US', opts); }
+  function clock(min) {
+    var h = Math.floor(min / 60) % 24, m = min % 60;
+    return (h % 12 || 12) + (m ? ':' + String(m).padStart(2, '0') : '') + (h < 12 ? ' AM' : ' PM');
+  }
+
+  function nowET() {
+    var o = {};
+    new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+    }).formatToParts(new Date()).forEach(function (p) { o[p.type] = p.value; });
+    return { date: o.year + '-' + o.month + '-' + o.day, min: +o.hour * 60 + +o.minute };
+  }
+
+  function firstMonday(today) {
+    var dow = today.getUTCDay();
+    return addDays(today, dow === 0 ? 1 : dow === 6 ? 2 : 1 - dow);
+  }
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text) e.textContent = text;
+    return e;
+  }
+
+  function render(data, monday, now) {
+    var hours = END_HOUR - START_HOUR;
+    var lo = START_HOUR * 60, hi = END_HOUR * 60;
+    var friday = addDays(monday, DAYS - 1);
+    grid.textContent = '';
+    grid.style.setProperty('--hours', hours);
+
+    rangeEl.textContent = fmt(monday, { month: 'short', day: 'numeric' }) + ' to ' +
+      (monday.getUTCMonth() === friday.getUTCMonth()
+        ? fmt(friday, { day: 'numeric' })
+        : fmt(friday, { month: 'short', day: 'numeric' }));
+
+    grid.appendChild(el('div', 'cal-corner'));
+    for (var i = 0; i < DAYS; i++) {
+      var d = addDays(monday, i);
+      grid.appendChild(el('div', 'cal-head' + (iso(d) === now.date ? ' today' : ''),
+        fmt(d, { weekday: 'short' }) + ' ' + d.getUTCDate()));
+    }
+
+    var gutter = el('div', 'cal-hours');
+    for (var h = START_HOUR; h < END_HOUR; h++) {
+      var label = el('span', null, clock(h * 60));
+      label.style.top = 'calc(var(--hour) * ' + (h - START_HOUR) + ')';
+      gutter.appendChild(label);
+    }
+    grid.appendChild(gutter);
+
+    for (var j = 0; j < DAYS; j++) {
+      var key = iso(addDays(monday, j));
+      var col = el('div', 'cal-day' + (key < now.date ? ' past' : ''));
+      (data.days[key] || []).forEach(function (b) {
+        var a = Math.max(b[0], lo), z = Math.min(b[1], hi);
+        if (z <= a) return;
+        var block = el('div', 'busy', z - a >= 30 ? 'busy' : '');
+        block.style.top = 'calc(var(--hour) * ' + (a - lo) / 60 + ')';
+        block.style.height = 'calc(var(--hour) * ' + (z - a) / 60 + ')';
+        block.title = 'Busy ' + clock(b[0]) + ' to ' + clock(b[1]);
+        block.setAttribute('aria-label', block.title);
+        col.appendChild(block);
+      });
+      if (key === now.date && now.min > lo && now.min < hi) {
+        var line = el('div', 'now');
+        line.style.top = 'calc(var(--hour) * ' + (now.min - lo) / 60 + ')';
+        col.appendChild(line);
+      }
+      grid.appendChild(col);
+    }
+  }
+
+  function fail() {
+    nav.hidden = true;
+    grid.hidden = true;
+    document.getElementById('cal-msg').hidden = false;
+  }
+
+  fetch('busy.json?t=' + Math.floor(Date.now() / 60000))
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (data) {
+      var now = nowET();
+      var first = firstMonday(parse(now.date));
+      var last = addDays(parse(data.start), (data.weeks - 1) * 7);
+      if (first > last) return fail();
+      var monday = first;
+
+      function show() {
+        render(data, monday, now);
+        prevBtn.disabled = monday <= first;
+        nextBtn.disabled = monday >= last;
+      }
+      prevBtn.addEventListener('click', function () { monday = addDays(monday, -7); show(); });
+      nextBtn.addEventListener('click', function () { monday = addDays(monday, 7); show(); });
+
+      nav.hidden = false;
+      grid.hidden = false;
+      show();
+    })
+    .catch(fail);
+})();
+</script>
 </body>
 </html>

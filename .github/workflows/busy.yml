@@ -1,0 +1,55 @@
+name: Update busy times
+
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - scripts/build_busy.py
+      - .github/workflows/busy.yml
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: busy-times
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install icalendar==7.3.0 recurring-ical-events==3.8.2
+
+      - name: Build busy.json
+        env:
+          GWU_ICS_URL: ${{ secrets.GWU_ICS_URL }}
+          CIGNUS_ICS_URL: ${{ secrets.CIGNUS_ICS_URL }}
+        run: python scripts/build_busy.py calendar/busy.json
+
+      - name: Commit and publish if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add calendar/busy.json
+          if git diff --cached --quiet; then
+            echo "No change"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update busy times"
+          git pull --rebase origin master
+          git push
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Could not request a Pages build"
