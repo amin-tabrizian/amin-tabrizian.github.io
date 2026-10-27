@@ -152,7 +152,7 @@ summary {
 }
 details[open] summary { margin-bottom: 6px; }
 
-.hl { color: var(--accent); }
+.hl { color: var(--ink); font-weight: 600; }
 
 /* Teaching and service rows */
 
